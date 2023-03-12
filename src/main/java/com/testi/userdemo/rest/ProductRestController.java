@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,22 +34,31 @@ public class ProductRestController {
         return pc.getProducts();
     }
 
-    @GetMapping("/info") //Palauttaa tuotelistan yhteisen hinnan
+    @GetMapping("/info") //Palauttaa tuotelistan yhteisen hinnan (voi poistaa)
     public Map<String, Object> getInfo(){
         return pc.getCustomInfo();
     }
 
-    @PostMapping("/products")  //lisää tuotteen
+    @PostMapping("/products")  //lisää uuden tuotteen
     public String addProduct(@RequestBody Product product){
         pc.addProduct(product);
         return "Product added";
     }
 
-    @DeleteMapping("/products") //poistaa tuotteen
-        public String removeProduct(@RequestBody Product product){
-            pc.removeProduct(product.getId());
-            return "Product removed";
+    @DeleteMapping("/products") //poistaa tietyn tuotteen
+    public String removeProduct(@RequestBody Product product){
+        pc.removeProduct(product.getId());
+        return "Product removed";
+    }
+
+    @PutMapping("/products") //Päivittää tietyn tuotteen
+    public String updateProduct(@RequestBody Product product){
+        boolean result = pc.updateProduct(product);
+        if(result){
+            return "Product updated";
         }
+        return "Product not found";
+    }
 
     @GetMapping("/products/{id}")  //palauttaa tietyn tuotteen
     public ResponseEntity<Product> getProduct(@PathVariable int id){

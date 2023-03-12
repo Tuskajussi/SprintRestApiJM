@@ -44,6 +44,17 @@ public class ProductService {
         return false;
     }
 
+    public boolean updateProduct(Product product){
+        for(Product p : products){
+            if(p.getId() == product.getId()){
+                p.setName(product.getName());
+                p.setPrice(product.getPrice());
+                return true;
+            }
+        }
+        return false;
+    }
+
     public Map<String, Object> getCustomInfo(){
 
         Map<String, Object> info = new HashMap<>();
