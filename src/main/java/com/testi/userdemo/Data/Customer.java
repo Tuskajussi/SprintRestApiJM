@@ -3,26 +3,26 @@ package com.testi.userdemo.Data;
 import java.util.List;
 
 public class Customer {
+    private int id;
     private String firstName;
     private String lastName;
     private String streetAddress;
     private String phoneNumber;
     private String email;
 
-    private int id;
     private List<Order> oldOrders;
     private List<Order> currentOrders;
 
     public Customer() {
     }
 
-    public Customer(String firstName, String lastName, String streetAddress, String phoneNumber, String email, int id, List<Order> oldOrders, List<Order> currentOrders) {
+    public Customer(int id, String firstName, String lastName, String streetAddress, String phoneNumber, String email, List<Order> oldOrders, List<Order> currentOrders) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.streetAddress = streetAddress;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.id = id;
         this.oldOrders = oldOrders;
         this.currentOrders = currentOrders;
     }
