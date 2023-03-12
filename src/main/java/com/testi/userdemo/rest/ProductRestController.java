@@ -34,11 +34,6 @@ public class ProductRestController {
         return pc.getProducts();
     }
 
-    @GetMapping("/info") //Palauttaa tuotelistan yhteisen hinnan (voi poistaa)
-    public Map<String, Object> getInfo(){
-        return pc.getCustomInfo();
-    }
-
     @PostMapping("/products")  //lisää uuden tuotteen
     public String addProduct(@RequestBody Product product){
         pc.addProduct(product);

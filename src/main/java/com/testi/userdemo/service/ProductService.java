@@ -54,18 +54,4 @@ public class ProductService {
         }
         return false;
     }
-
-    public Map<String, Object> getCustomInfo(){
-
-        Map<String, Object> info = new HashMap<>();
-        info.put("count", products.size());
-        double price = 0;
-
-        for(Product product : products){
-            price += product.getPrice();
-        }
-        info.put("totalPrice", price);
-
-        return info;
-    }
 }

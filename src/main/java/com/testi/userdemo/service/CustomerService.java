@@ -1,6 +1,7 @@
 package com.testi.userdemo.service;
 
 import com.testi.userdemo.Data.Customer;
+import com.testi.userdemo.Data.Order;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,9 +37,9 @@ public class CustomerService {
     }
 
     public boolean removeCustomer(int id){
-        Customer p = findCustomer(id);
-            if(p != null){
-                return customers.remove(p);
+        Customer c = findCustomer(id);
+            if(c != null){
+                return customers.remove(c);
             }
         return false;
     }
@@ -56,4 +57,9 @@ public class CustomerService {
         }
         return false;
     }
+
+    public List<Order> getOpenOrders(int id){  //hakee avoimet tilaukset
+        Customer c = findCustomer(id);
+        return c.getCurrentOrders();
+    } 
 }
