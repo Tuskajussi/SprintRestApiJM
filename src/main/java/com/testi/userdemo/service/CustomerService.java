@@ -13,21 +13,21 @@ public class CustomerService {
 
     private List<Customer> customers = new ArrayList<>();
 
-    public CustomerService(){
+    public CustomerService(){ //wannabe tietokanta
         customers.add(new Customer(0, "Jussi", "Mäki", "Espoo jotain", "049494994", "jussi.jotain@jotain.fi", new ArrayList<>(), new ArrayList<>()));
         customers.add(new Customer(1, "Erkki", "Keke", "Espoo jotains", "0494949294", "erkki.jotain@jotain.fi", new ArrayList<>(), new ArrayList<>()));
         customers.add(new Customer(2, "Perkki", "Tete", "Espoo jotainss", "0494943994", "perkki.jotain@jotain.fi", new ArrayList<>(), new ArrayList<>()));
     }
 
-    public void addCustomer(Customer customer){
+    public void addCustomer(Customer customer){ //lisää asiakas
         customers.add(customer);
     }
 
-    public List<Customer> getCustomers(){
+    public List<Customer> getCustomers(){ //hakee asiakkaat
         return new ArrayList<>(customers); 
     }
 
-    public Customer findCustomer(int id){
+    public Customer findCustomer(int id){  //etsi asiakas
         for (Customer customer : customers) {
             if(customer.getId() == id){
                 return customer;
@@ -36,7 +36,7 @@ public class CustomerService {
         return null;
     }
 
-    public boolean removeCustomer(int id){
+    public boolean removeCustomer(int id){ //poista asiakas
         Customer c = findCustomer(id);
             if(c != null){
                 return customers.remove(c);
