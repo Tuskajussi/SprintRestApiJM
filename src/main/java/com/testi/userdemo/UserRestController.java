@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+//@RestController
 public class UserRestController {
-
+/* 
     private UserService uService = new UserService();
 
     @PostMapping("/")
@@ -88,6 +88,5 @@ public class UserRestController {
         Map<String,String> json = new HashMap<>();
         json.put("message", "Returning user");
         return new ResponseEntity(json, headers, HttpStatus.OK); //HttpStatus.UNAUTHORIZED yms voi antaa vastaukseks
-    }
-
+    }*/
 }
